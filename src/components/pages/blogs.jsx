@@ -31,7 +31,7 @@ export default function Blogs(props) {
               <ArrowBackIcon sx={{ fontSize: "1rem" }} />
               {"back"}
             </div>
-            <h2>All blogs</h2>
+            <h2>ALL BLOGS</h2>
           </div>
           <div className="page-body">
             {apiData?.map((item, index) => (

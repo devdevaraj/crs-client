@@ -26,7 +26,11 @@ import avatar from "../../assets/avatar.jpg";
 import docImg from "../../assets/document.jpg";
 import loading from "../../assets/loading.gif";
 import { setContent, updateContent } from "../../helper/helper";
-import { useFetchUser, useFetchDoc, useFetchContent } from "../../hooks/fetch.hook";
+import {
+  useFetchUser,
+  useFetchDoc,
+  useFetchContent,
+} from "../../hooks/fetch.hook";
 import { convertToBase64 } from "../../helper/convert";
 import {
   updateUser,
@@ -494,7 +498,7 @@ const AddUser = (props) => {
     return (
       <div className="loading">
         <div className="loading-body">
-          <img src={loading} alt="add user"/>
+          <img src={loading} alt="add user" />
         </div>
       </div>
     );
@@ -732,82 +736,100 @@ const UploadDocument = (props) => {
 };
 
 const EditWebsite = (props) => {
-  const [img,setImg] = useState(null);
+  const [img, setImg] = useState(null);
   const headding = useFetchContent("About-headding");
   const description = useFetchContent("About-des");
   const abtImg = useFetchContent("About-img");
 
+  const isLoading = abtImg[0]?.isLoading;
   const onUpload = async (e) => {
     const base64 = await convertToBase64(e.target.files[0]);
     setImg(base64);
-  }
+  };
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    let res1,res2,res3;
+    let res1, res2, res3;
     if (headding[0].apiData) {
-       res1 = updateContent({
+      res1 = updateContent({
         cname: "About-headding",
         content: document.getElementById("title").value,
       });
     } else {
-       res1 = setContent({
+      res1 = setContent({
         cname: "About-headding",
         content: document.getElementById("title").value,
       });
     }
     if (description[0].apiData) {
-       res2 = updateContent({
+      res2 = updateContent({
         cname: "About-des",
         content: document.getElementById("des").value,
       });
     } else {
-       res2 = setContent({
+      res2 = setContent({
         cname: "About-des",
         content: document.getElementById("des").value,
       });
     }
 
     if (abtImg[0].apiData) {
-       res3 = updateContent({
+      res3 = updateContent({
         cname: "About-img",
         content: img || (abtImg && abtImg[0]?.apiData?.content) || "",
       });
     } else {
-       res3 = setContent({
+      res3 = setContent({
         cname: "About-img",
         content: img || (abtImg && abtImg[0]?.apiData?.content) || "",
       });
     }
 
-    const res = Promise.all([res1,res2,res3]);
+    const res = Promise.all([res1, res2, res3]);
     toast.promise(res, {
       loading: "Creating...",
       success: <b>Created successfully...!</b>,
       error: <b>Could not create!</b>,
     });
-  }
+  };
 
   useEffect(() => {
-    document.getElementById("title").value = headding[0].apiData?.content;
-    document.getElementById("des").value = description[0].apiData?.content;
+    if (!isLoading) {
+      document.getElementById("title").value = headding[0].apiData?.content;
+      document.getElementById("des").value = description[0].apiData?.content;
+    }
   });
   return (
     <div className="edit-webpage">
-      <div className="inner">
-        <h2>EDIT ABOUT</h2>
-        <form onSubmit={submitHandler}>
-          <label htmlFor="about-image" id="ll">
-            <img src={img || (abtImg && abtImg[0]?.apiData?.content) || logo} alt="" />
-          </label>
-          <input onChange={onUpload} type="file" id="about-image" />
-          <label htmlFor="title" id="lb">ABOUT TITLE:</label>
-          <input type="text" id="title"/>
-          <label htmlFor="des" id="lb">ABOUT DESCRIPTION:</label>
-          <textarea id="des"></textarea>
-          <button type="submit">UPDATE</button>
-        </form>
-      </div>
+      {isLoading ? (
+        <div style={{ padding: 0 }} className="loading">
+          <div className="loading-body">
+            <img src={loading} alt="view" />
+          </div>
+        </div>
+      ) : (
+        <div className="inner">
+          <h2>EDIT ABOUT</h2>
+          <form onSubmit={submitHandler}>
+            <label htmlFor="about-image" id="ll">
+              <img
+                src={img || (abtImg && abtImg[0]?.apiData?.content) || logo}
+                alt=""
+              />
+            </label>
+            <input onChange={onUpload} type="file" id="about-image" />
+            <label htmlFor="title" id="lb">
+              ABOUT TITLE:
+            </label>
+            <input type="text" id="title" />
+            <label htmlFor="des" id="lb">
+              ABOUT DESCRIPTION:
+            </label>
+            <textarea id="des"></textarea>
+            <button type="submit">UPDATE</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

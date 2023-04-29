@@ -127,7 +127,7 @@ export default function EditPopup(props) {
               <CloseIcon />
             </button>
             <div className="popup-body">
-              <h2>Content editor</h2>
+              <h2>CONTACT EDITOR</h2>
               <form onSubmit={SubmitHandler}>
                 <label htmlFor="preview">Preview</label>
                 <div className="preview" id="preview"></div>

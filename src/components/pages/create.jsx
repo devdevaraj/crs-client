@@ -8,6 +8,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import "./style.scss";
 import logo from "../../assets/logo.svg";
+import loading from "../../assets/loading.gif";
 import coverImg from "../../assets/cover.png";
 import { convertToBase64 } from "../../helper/convert";
 import { setDocument, updateDocument } from "../../helper/helper";
@@ -19,7 +20,7 @@ export default function Create(props) {
   const [cover, setCover] = useState(null);
   const navigate = useNavigate();
 
-  const [{ apiData }] = useFetchDoc(
+  const [{ isLoading, apiData }] = useFetchDoc(
     `/get-private-docs?dname=${create}&docId=${docId}`
   );
 
@@ -47,16 +48,16 @@ export default function Create(props) {
       values = await Object.assign(values, {
         title: title,
         image: cover || (apiData && apiData[0]?.image) || "",
-        document: doc
+        document: doc,
       });
       let createPromise;
       let stat;
-      if(props.edit) {
+      if (props.edit) {
         stat = "updat";
         const { did, ...rest } = values;
         rest.docId = apiData[0]?._id;
         createPromise = updateDocument(rest);
-      }else {
+      } else {
         stat = "post";
         createPromise = setDocument(values);
       }
@@ -78,11 +79,11 @@ export default function Create(props) {
   };
 
   useEffect(() => {
-    if(apiData) {
+    if (apiData) {
       document.getElementById("manage-title").value = apiData[0]?.title;
       document.getElementById("manage-document").value = apiData[0].document;
     }
-  },[apiData]);
+  }, [apiData]);
 
   return (
     <>
@@ -99,63 +100,72 @@ export default function Create(props) {
       </div>
 
       <div className="create-asset">
-        <div className="create-assets-body">
-          <form onSubmit={formik.handleSubmit}>
-            <div className="header">
-              <button
-                onClick={() => navigate(`/manage/${create}`, { replace: true })}
-                type="button"
-                className="back-button"
-              >
-                <ArrowBackIcon sx={{ fontSize: "1rem" }} />
-                back
-              </button>
-              <h2>
-                {props.edit
-                  ? `Edit this ${create.substring(0, create.length - 1)}`
-                  : `Create new ${create.substring(0, create.length - 1)}`}
-              </h2>
-            </div>
-            <div className="cover-image">
-              <label htmlFor="cover-image" className="label">
-                <img
-                  src={cover || (apiData && apiData[0]?.image) || coverImg}
-                  alt="cover"
-                />
-              </label>
-            </div>
-            <input
-              onChange={onUpload}
-              type="file"
-              accept="image/*"
-              id="cover-image"
-              style={{ display: "none" }}
-            />
-            <div className="asset-body-one">
-              <label htmlFor="title">Title: </label>
-              <input
-              id="manage-title"
-                type="text"
-              />
-            </div>
-            <div className="asset-body-two">
-              <label htmlFor="description">Description:</label>
-              <textarea
-                name="manage-document"
-                id="manage-document"
-              ></textarea>
-            </div>
-            <div className="asset-body-three">
-              <button type="submit">{props.edit ? "Update" : "Post"}</button>
-              <button
-                onClick={() => navigate(`/manage/${create}`, { replace: true })}
-                type="button"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+      {isLoading ? (
+        <div style={{ padding: 0 }} className="loading">
+          <div className="loading-body">
+            <img src={loading} alt="view" />
+          </div>
         </div>
+      ) : (
+          <div className="create-assets-body">
+            <form onSubmit={formik.handleSubmit}>
+              <div className="header">
+                <button
+                  onClick={() =>
+                    navigate(`/manage/${create}`, { replace: true })
+                  }
+                  type="button"
+                  className="back-button"
+                >
+                  <ArrowBackIcon sx={{ fontSize: "1rem" }} />
+                  back
+                </button>
+                <h2>
+                  {props.edit
+                    ? `Edit this ${create.substring(0, create.length - 1)}`
+                    : `Create new ${create.substring(0, create.length - 1)}`}
+                </h2>
+              </div>
+              <div className="cover-image">
+                <label htmlFor="cover-image" className="label">
+                  <img
+                    src={cover || (apiData && apiData[0]?.image) || coverImg}
+                    alt="cover"
+                  />
+                </label>
+              </div>
+              <input
+                onChange={onUpload}
+                type="file"
+                accept="image/*"
+                id="cover-image"
+                style={{ display: "none" }}
+              />
+              <div className="asset-body-one">
+                <label htmlFor="title">Title: </label>
+                <input id="manage-title" type="text" />
+              </div>
+              <div className="asset-body-two">
+                <label htmlFor="description">Description:</label>
+                <textarea
+                  name="manage-document"
+                  id="manage-document"
+                ></textarea>
+              </div>
+              <div className="asset-body-three">
+                <button type="submit">{props.edit ? "Update" : "Post"}</button>
+                <button
+                  onClick={() =>
+                    navigate(`/manage/${create}`, { replace: true })
+                  }
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+      )}
       </div>
     </>
   );

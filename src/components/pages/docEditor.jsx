@@ -51,7 +51,7 @@ export default function Editor(props) {
       <Toaster position="top-center" reverseOrder={false}></Toaster>
       <Navigation setPage={props.setPage} setScroll={props.setScroll} />
       <div className="doc-editor">
-        <h2>Dock editor</h2>
+        <h2>DOCUMENT EDITOR</h2>
         <div className="editor-body">
           <form onSubmit={formik.handleSubmit}>
             <label htmlFor="image" id="img-label">

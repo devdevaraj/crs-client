@@ -93,22 +93,22 @@ export default function Navigation(props) {
           </div>
         </div>
         <div onClick={() => scroll(1)} className="navItem">
-          About
+          ABOUT
         </div>
         <div onClick={() => scroll(2)} className="navItem">
-          Services
+          SERVICES
         </div>
         <div onClick={() => scroll(3)} className="navItem">
-          Blog
+          BLOGS
         </div>
         <div onClick={() => scroll(4)} className="navItem">
-          Publications
+          PUBLICATIONS
         </div>
         <div onClick={() => scroll(5)} className="navItem">
-          Career
+          CAREER
         </div>
         <div onClick={() => scroll(6)} className="navItem">
-          Contact
+          CONTACT
         </div>
         {!token && (
           <button onClick={() => navigate("/login")} type="button">

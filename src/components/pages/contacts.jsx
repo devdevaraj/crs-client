@@ -95,7 +95,7 @@ export default function Contacts(props) {
                     <ArrowBackIcon sx={{ fontSize: "1rem" }} />
                     Back
                   </button>
-                  <h3>{`Manage contacts`}</h3>
+                  <h3>{`MANAGE CONTACTS`}</h3>
                 </div>
                 <div className="inner two">
                   <button

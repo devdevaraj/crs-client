@@ -9,7 +9,7 @@ export default function Blogs(props) {
   const navigate = useNavigate();
   return (
     <div className="blogs">
-      <h2>Blogs</h2>
+      <h2>BLOGS</h2>
       <div className="blog-body">
         {apiData?.map((item, index) => (
           <div key={index} className="hor">

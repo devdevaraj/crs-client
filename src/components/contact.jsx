@@ -26,7 +26,7 @@ export default function Contact(props) {
   L.Marker.prototype.options.icon = DefaultIcon;
   return (
     <div className="contact">
-      <h1>Contact us</h1>
+      <h1>CONTACT US</h1>
       <div className="map">
         <div className="map-container">
           <MapContainer

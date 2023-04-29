@@ -1360,10 +1360,13 @@
     background-color: #ffffffaa;
 
     .assets-view-body {
+        display: flex;
+        flex-direction: column;
         height: 100%;
         width: 100%;
         border-radius: 1rem;
         overflow: scroll;
+        align-items: center;
         box-shadow: 0 0 10px black inset;
 
         .assets-cover-image-container {
@@ -1378,10 +1381,12 @@
         }
         .assets-body {
             height: fit-content;
-            width: 100%;
+            width: 60%;
             padding: 2rem;
 
             .view-description {
+                font-size: 1.5rem;
+                white-space: pre-wrap;
                 overflow-wrap: break-word;
                 overflow: visible;
             }
@@ -1725,7 +1730,6 @@
             }
         }
     }
-
 
     .universal-back-button {
         height: 1.5rem;
@@ -2093,7 +2097,12 @@
                 height: 30%;
             }
             .assets-body {
+                width: 100%;
                 padding: 0.5rem;
+
+                .view-description {
+                    font-size: 1.2rem;
+                }
             }
         }
     }

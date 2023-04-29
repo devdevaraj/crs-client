@@ -52,7 +52,7 @@ export default function Login(props) {
                 <Navigation setPage={props.setPage} setScroll={props.setScroll}/>
             </div>
             <div className="login-body">
-                <h2>Login</h2>
+                <h2>LOGIN</h2>
                 <form onSubmit={formik.handleSubmit}>
                     <input {...formik.getFieldProps("username")} type="text" placeholder="username"/>
                     <input {...formik.getFieldProps("password")} type="password" placeholder="password"/>

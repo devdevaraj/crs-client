@@ -47,7 +47,7 @@ export default function Publications(props) {
       </Popup>
 
       <div className="publications">
-        <h1>Publications</h1>
+        <h1>PUBLICATIONS</h1>
         <div className="pub-body">
           {data?.map((item, index) => (
             <div key={index} className="pub">

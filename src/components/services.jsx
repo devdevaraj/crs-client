@@ -11,7 +11,7 @@ export default function Services(props) {
     const navigate = useNavigate();
     return(
         <div className="services">
-            <h2>Services</h2>
+            <h2>SERVICES</h2>
             <div className="box">
                 {apiData?.map((service, index) => (
                 <div key={index} className="service">

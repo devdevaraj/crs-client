@@ -20,7 +20,9 @@ export default function Services(props) {
       </div>
       {isLoading ? (
         <div className="loading">
-          <div className="loading-body">
+          <div className="loading-body" style={{
+          boxShadow: "none"
+        }}>
             <img src={loading} alt="services"/>
           </div>
         </div>

@@ -86,7 +86,9 @@ export default function Manage(props) {
                   <ArrowBackIcon sx={{ fontSize: "1rem" }} />
                   Back
                 </button>
-                <h3>{`Manage ${manage}`}</h3>
+                <h3 style={{
+                  textTransform: "uppercase"
+                }}>{`Manage ${manage}`}</h3>
               </div>
               <div className="inner two">
                 <button

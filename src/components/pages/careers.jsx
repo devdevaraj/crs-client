@@ -31,7 +31,7 @@ export default function Careers(props) {
               <ArrowBackIcon sx={{ fontSize: "1rem" }} />
               {"back"}
             </div>
-            <h2>All career opportunities</h2>
+            <h2>ALL CAREER OPPRTUNITIES</h2>
           </div>
           <div className="page-body">
             {apiData?.map((item, index) => (

@@ -10,7 +10,7 @@ export default function Career(props) {
 
   return (
     <div className="career">
-      <h1>Career opportunities</h1>
+      <h1>CAREER OPPORTUNITIES</h1>
       <div className="career-body">
         {apiData?.map((career, index) => (
           <div key={index} className="career-item">

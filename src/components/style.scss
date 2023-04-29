@@ -295,7 +295,10 @@
     justify-content: center;
 
     img {
+      height: 90%;
       width: 100%;
+      border-radius: 2rem;
+      object-fit: cover;
     }
   }
 

@@ -752,8 +752,8 @@
   .login-body {
     display: flex;
     flex-direction: column;
-    height: 60%;
-    aspect-ratio: 2/3;
+    height: 45%;
+    aspect-ratio: 1.2/1;
     border-radius: 2rem;
     padding: 1rem;
     gap: 4rem;
@@ -772,12 +772,22 @@
         height: 3rem;
         width: 100%;
         border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 0 10px black;
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 0 0 10px blue;
       }
 
       button {
         height: 3rem;
         width: 100%;
         border-radius: 0.5rem;
+      }
+      button:focus {
+        outline: none;
+        box-shadow: 0 0 10px blue;
       }
     }
   }
@@ -1025,6 +1035,13 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  .login {
+    .login-body {
+      height: 60%;
+      aspect-ratio: 1/1.2;
     }
   }
 }

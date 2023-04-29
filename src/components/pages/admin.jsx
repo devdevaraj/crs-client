@@ -1014,7 +1014,6 @@ const DocumentUploader = (props) => {
     setFile(base64);
   };
   const uploadCover = async (e) => {
-    console.log(e.target.files[0]);
     const base64 = await convertToBase64(e.target.files[0]);
     setCover(base64);
   };

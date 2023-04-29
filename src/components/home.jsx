@@ -5,7 +5,7 @@ import loading from "../assets/loading.gif";
 import { useFetchDoc } from "../hooks/fetch.hook";
 
 export default function Home(props) {
-  const [{ isLoading, apiData }] = useFetchDoc(`/get-documents?image=1`);
+  const [{ isLoading, apiData }] = useFetchDoc(`/get-documents?image=1&limit=4`);
   useEffect(() => {
     const intarval = setInterval(() => {
       try {
@@ -25,6 +25,11 @@ export default function Home(props) {
       }
     }, 4000);
   });
+  const style = {
+    borderRadius: "1rem",
+    backgroundColor: "#33333399",
+    boxShadow: "0 0 10px black"
+  }
   return (
     <div className="home-container">
       {isLoading ? (
@@ -60,8 +65,8 @@ export default function Home(props) {
         </div>
       )}
       <div className="cover">
-        <button>Certificate verification</button>
-        <button>Classification request</button>
+        <button style={style}>Certificate verification</button>
+        <button style={style}>Classification request</button>
       </div>
     </div>
   );

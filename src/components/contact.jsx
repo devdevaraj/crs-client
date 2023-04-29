@@ -12,12 +12,14 @@ export default function Contact(props) {
   const [{ apiData }] = useFetchDoc("/get-documents?dname=contacts");
   let poses = [];
   if (apiData) {
-    poses = apiData?.map((item) => [
+    poses = apiData?.map((item) => ({pos: [
       item.document.split(";lat:")[1].split(";lon:")[0],
       item.document.split(";lon:")[1].split(";")[0],
-    ]);
+    ],
+    add: item.document.split("add:")[1].split(";ph")[0]
+  }));
   }
-  const position = [20.5937, 78.9629];
+  const position = [25, 25];
   let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
@@ -34,14 +36,14 @@ export default function Contact(props) {
               height: "100%",
             }}
             center={position}
-            zoom={2}
+            zoom={1}
             scrollWheelZoom={false}
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             {poses?.map((position, index) => (
-              <Marker key={index} position={position}>
+              <Marker key={index} position={position.pos}>
                 <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
+                  {position.add}
                 </Popup>
               </Marker>
             ))}

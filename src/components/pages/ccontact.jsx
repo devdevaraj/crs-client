@@ -123,8 +123,8 @@ export default function CreateContact(props) {
             <input type="email" id="contact-email" />
             <label htmlFor="contact-coo">co-ordinates:</label>
             <div className="coord">
-              <input type="number" id="lat" placeholder="lat" />
-              <input type="number" id="lon" placeholder="lon" />
+              <input type="number" id="lat" placeholder="lat" step="0.00001" />
+              <input type="number" id="lon" placeholder="lon" step="0.00001"/>
             </div>
             <div className="bottom">
               <button type="submit">{props.new ? "CREATE" : "UPDATE"}</button>

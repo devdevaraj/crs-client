@@ -68,7 +68,7 @@ export default function Home(props) {
         </div>
       )}
       <div className="cover">
-      <a href="http://google.com" target="_blank" rel="noreferrer">
+      <a href="https://crsclass-esims.floatsys.com/CRSClass/Account/Signin.aspx" target="_blank" rel="noreferrer">
         <button style={style}>Certificate verification</button>
       </a>
         <div className="s-media">
@@ -82,7 +82,7 @@ export default function Home(props) {
         <WhatsAppIcon sx={{ fontSize: "4rem", color: "#25D366" }} />
         </a>
         </div>
-      <a href="http://google.com" target="_blank" rel="noreferrer">
+      <a href="https://crsclass-esims.floatsys.com/crsclass/frmCreateSurveyRequest.aspx" target="_blank" rel="noreferrer">
         <button style={style}>Classification request</button>
       </a>
       </div>

@@ -40,8 +40,10 @@ export default function Blogs(props) {
                   <img src={item.image} alt="cover" />
                 </div>
                 <div className="description">
+                <div>
                   <h3>{item.title}</h3>
                   <p>{item.date}</p>
+                </div>
                   <div className="link">
                     <Link
                       style={{ textDecoration: "none" }}

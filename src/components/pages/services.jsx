@@ -38,7 +38,7 @@ export default function Services(props) {
           <div className="page-body-one">
             {apiData?.map((item, index) => (
               <div key={index} className="page-box">
-                <div className="img-container">
+                <div className="img-ctr">
                   <img src={item.image} alt="cover" />
                 </div>
                 <div className="description">

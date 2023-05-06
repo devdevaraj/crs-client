@@ -79,8 +79,8 @@
                 flex-direction: column;
                 height: 50%;
                 width: 100%;
-                padding: 1rem;
-                justify-content: flex-end;
+                padding: 0.5rem;
+                justify-content: space-between;
 
                 .link {
                     display: flex;
@@ -147,24 +147,25 @@
         
         .page-box {
             flex: 1;
-            height: 60%;
+           // height: 100%;
             border-radius: 1rem;
             background-color: #ffffffaa;
+            box-shadow: 0 0 10px black;
 
-            .img-container {
-                height: 60%;
+            .img-ctr {
                 width: 100%;
+                
                 img {
                     height: 100%;
                     width: 100%;
                     border-radius: 1rem 1rem 0 0;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
             }
             .description {
-                height: 40%;
+                //height: 40%;
                 width: 100%;
-                padding: 1rem;
+                padding: 0.5rem;
 
                 h3 {
                     height: 25%;
@@ -178,7 +179,7 @@
                     display: flex;
                     height: 50%;
                     width: 100%;
-                    padding: 1rem;
+                    padding: 0.5rem;
                     align-items: flex-end;
                     justify-content: flex-end;
                 }
@@ -979,7 +980,6 @@
     }
 }
 
-
 .upload-popup {
     .upload-popup-close {
         position: absolute;
@@ -1694,7 +1694,8 @@
             }
         }
         #des {
-            height: 6rem;
+            height: 20rem;
+            font-size: 1rem;
         }
     }
 }
@@ -1756,12 +1757,12 @@
             .page-box {
                 scroll-snap-align: start;
                 flex: none;
-                height: 100%;
+                height: fit-content;
                 width: 100%;
                 border-radius: 0.5rem;
                 
                 .img-container {
-                    height: 50%;
+                   // height: 50%;
                     width: 100%;
                     border-radius: 0.5rem;
                     

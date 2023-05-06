@@ -89,7 +89,7 @@ export default function Admin(props) {
       <div className="admin-panel">
         <div className="menu-bar">
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" style={{ backgroundColor: "white" }}/>
             <div className="headding">
               <span>CAPITAL REGISTER OF</span>
               <span id="bold">SHIPPING</span>
@@ -811,7 +811,7 @@ const EditWebsite = (props) => {
         <div className="inner">
           <h2>EDIT ABOUT</h2>
           <form onSubmit={submitHandler}>
-            <label htmlFor="about-image" id="ll">
+            <label htmlFor="about-image" id="ll" style={{ display: "none"}}>
               <img
                 src={img || (abtImg && abtImg[0]?.apiData?.content) || logo}
                 alt=""

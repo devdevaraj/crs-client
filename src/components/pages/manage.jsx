@@ -49,7 +49,7 @@ export default function Manage(props) {
 
       <div className="menu-bar">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" style={{ backgroundColor: "white" }} />
           <div className="headding">
             <span>CAPITAL REGISTER OF</span>
             <span id="bold">SHIPPING</span>

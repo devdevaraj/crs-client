@@ -1,20 +1,18 @@
 import React from "react";
 import { useFetchContent } from "../hooks/fetch.hook";
 
-import background from "../assets/Picture 1 Edit 2 jpg.jpeg";
 import "./style.scss";
 
 export default function About(props) {
   const title = useFetchContent("About-headding");
   const des = useFetchContent("About-des");
-  const img = useFetchContent("About-img");
   // const style = styleConverter(apiData?.props);
   return (
     <div className="about">
-      <div className="left">
+     {/* <div className="left">
         <img src={(img && img[0]?.apiData?.content) || background} alt="about-img" />
-      </div>
-      <div className="right">
+      </div>*/}
+      <div className="righ">
         <h1>    
         {title && title[0]?.apiData?.content}
       </h1>

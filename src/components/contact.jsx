@@ -19,7 +19,7 @@ export default function Contact(props) {
     add: item.document.split("add:")[1].split(";ph")[0]
   }));
   }
-  const position = [25, 25];
+  const position = [20, 20];
   let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,

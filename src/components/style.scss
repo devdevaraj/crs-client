@@ -682,9 +682,11 @@
     display: flex;
     height: 40%;
     width: 100%;
-    font-size: calc(0.3rem + 1.2vh);
+    gap: 1rem;
+    font-size: calc(0.3rem + 1vh);
+    overflow: scroll;
     align-items: center;
-    justify-content: space-around;
+   // justify-content: space-around;
     background-color: #fff3;
 
     .add-container {
@@ -695,7 +697,7 @@
       padding: 1rem;
       border-radius: 1rem;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       background-color: #fff9;
 
       .title {
@@ -705,10 +707,12 @@
 
       .rest {
         width: 100%;
+        
       }
 
       .ph-mail {
         width: 100%;
+        font-size: 80%;
 
         .ph {
           width: 100%;

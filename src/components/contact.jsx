@@ -59,6 +59,7 @@ export default function Contact(props) {
             <h5 className="rest">Address:</h5>
             <div style={{
               wordWrap: "break-word",
+              fontSize: "80%"
             }}>
               {item.document.split("add:")[1].split(";ph:")[0]}
             </div>

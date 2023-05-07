@@ -67,13 +67,17 @@ export default function Contact(props) {
               <div className="ph">
                 <h5>Phone:</h5>
                 <div>
+                <a href={`tel:${item.document.split(";ph:")[1].split(";mail:")[0]}`} target="_blank" rel="noreferrer">
                   {item.document.split(";ph:")[1].split(";mail:")[0]}
+                  </a>
                 </div>
               </div>
               <div className="mail">
                 <h5>Email</h5>
                 <div>
+                <a href={`mailto:${item.document.split(";mail:")[1].split(";lat:")[0]}`} target="_blank" rel="noreferrer">
                   {item.document.split(";mail:")[1].split(";lat:")[0]}
+                </a>
                 </div>
               </div>
             </div>

@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 import "./style.scss";
 import loading from "../assets/loading.gif";
 import { useFetchDoc } from "../hooks/fetch.hook";
 
 export default function Home(props) {
-  const [{ isLoading, apiData }] = useFetchDoc(`/get-documents?image=1&limit=5`);
+  const [{ isLoading, apiData }] = useFetchDoc(
+    `/get-documents?image=1&limit=5`
+  );
   useEffect(() => {
     const intarval = setInterval(() => {
       try {
@@ -30,8 +32,8 @@ export default function Home(props) {
   const style = {
     borderRadius: "1rem",
     backgroundColor: "#777777",
-    color: "white"
-  }
+    color: "white",
+  };
   return (
     <div className="home-container">
       {isLoading ? (
@@ -67,22 +69,38 @@ export default function Home(props) {
         </div>
       )}
       <div className="cover">
-      <a href="https://crsclass-esims.floatsys.com/CRSClass/Account/Signin.aspx" target="_blank" rel="noreferrer">
-        <button style={style}>Certificate verification</button>
-      </a>
-      
-        <div className="s-media">
-        <a href="https://www.facebook.com/profile.php?id=100083902624915" target="_blank" rel="noreferrer">
-        <FacebookIcon sx={{ fontSize: "4rem", color: "#4267B2" }} />
-        </a>
-        <a href="https://www.linkedin.com/company/crsclass/" target="_blank" rel="noreferrer">
-        <LinkedInIcon sx={{ fontSize: "4rem", color: "#0077b5" }} />
-        </a>
+        <div className="buttons-container">
+          <a
+            href="https://crsclass-esims.floatsys.com/CRSClass/Account/Signin.aspx"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button style={style}>Certificate verification</button>
+          </a>
+          <a
+            href="https://crsclass-esims.floatsys.com/crsclass/frmCreateSurveyRequest.aspx"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button style={style}>Classification request</button>
+          </a>
         </div>
-        
-      <a href="https://crsclass-esims.floatsys.com/crsclass/frmCreateSurveyRequest.aspx" target="_blank" rel="noreferrer">
-        <button style={style}>Classification request</button>
-      </a>
+        <div className="s-media">
+          <a
+            href="https://www.facebook.com/profile.php?id=100083902624915"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FacebookIcon sx={{ fontSize: "4rem", color: "#4267B2" }} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/crsclass/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkedInIcon sx={{ fontSize: "4rem", color: "#0077b5" }} />
+          </a>
+        </div>
       </div>
     </div>
   );

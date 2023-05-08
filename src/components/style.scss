@@ -262,12 +262,12 @@
   .cover {
     position: absolute;
     display: flex;
+    flex-direction: column;
     flex: content;
     height: 30%;
     width: 100%;
     bottom: 0;
     // background-color: rgba(255, 255, 255, 0.6);
-    justify-content: space-evenly;
     align-items: center;
     a {
       height: 4rem;
@@ -277,6 +277,24 @@
         width: 100%;
         background-color: orange;
         box-shadow: 1px 1px 2px 1px #000;
+      }
+    }
+    .buttons-container {
+      display: flex;
+      flex-direction: row;
+      flex: content;
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .s-media {
+      display: flex;
+      width: 100%;
+      padding: 1rem;
+      justify-content: flex-end;
+      
+      a {
+        width: fit-content;
       }
     }
   }
@@ -294,7 +312,6 @@
   color: white;
   justify-content: center;
   align-items: center;
-
   .righ {
     //flex: 0;
     height: 100%;
@@ -852,8 +869,11 @@
     }
 
     .cover {
-      flex-direction: column;
       height: calc(100% - (100vw * (4 / 5)));
+      
+      .buttons-container {
+        flex-direction: column;
+      }
     }
   }
 

@@ -78,7 +78,7 @@ export default function Publications(props) {
                   <img src={item.image} alt="cover" />
                 </div>
                 <div className="description">
-                  <h3>{item.title}</h3>
+                  <h3>{item.title.length < 40 ? item.title : `${item.title.substring(0,40)}...`}</h3>
                   <p>{item.date}</p>
                   <div className="link">
                     <button onClick={() => setDownloadPopup(item)}>

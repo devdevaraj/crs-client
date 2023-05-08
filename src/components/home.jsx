@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 import "./style.scss";
 import loading from "../assets/loading.gif";
@@ -71,17 +70,16 @@ export default function Home(props) {
       <a href="https://crsclass-esims.floatsys.com/CRSClass/Account/Signin.aspx" target="_blank" rel="noreferrer">
         <button style={style}>Certificate verification</button>
       </a>
+      
         <div className="s-media">
-        <a href="http://Instagram.com" target="_blank" rel="noreferrer">
-        <InstagramIcon sx={{ fontSize: "4rem", color: "#962fbf" }} />
+        <a href="https://www.facebook.com/profile.php?id=100083902624915" target="_blank" rel="noreferrer">
+        <FacebookIcon sx={{ fontSize: "4rem", color: "#4267B2" }} />
         </a>
-        <a href="http://linkedin.com" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/company/crsclass/" target="_blank" rel="noreferrer">
         <LinkedInIcon sx={{ fontSize: "4rem", color: "#0077b5" }} />
         </a>
-        <a href="http://wa.me" target="_blank" rel="noreferrer">
-        <WhatsAppIcon sx={{ fontSize: "4rem", color: "#25D366" }} />
-        </a>
         </div>
+        
       <a href="https://crsclass-esims.floatsys.com/crsclass/frmCreateSurveyRequest.aspx" target="_blank" rel="noreferrer">
         <button style={style}>Classification request</button>
       </a>
